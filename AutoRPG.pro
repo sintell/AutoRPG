@@ -35,4 +35,3 @@ FORMS    += autorpg.ui \
     newcharacter.ui
 
 RESOURCES = res.qrc
-

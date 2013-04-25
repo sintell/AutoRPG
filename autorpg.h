@@ -6,14 +6,14 @@
 
 #include <QMainWindow>
 
-
-
-enum class GAME_STATE {
-    GS_RUNNING = 0,
-    GS_PENDING = 1
+enum class GAME_STATE{
+    RUNNING,
+    PENDING
 };
+
 namespace Ui {
 class AutoRpg;
+
 }
 
 class AutoRpg : public QMainWindow

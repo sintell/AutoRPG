@@ -7,7 +7,6 @@
 #include <QTimer>
 #include <QTextEdit>
 
-
 class Game : public QObject
 {
     Q_OBJECT

@@ -32,7 +32,7 @@ void AutoRpg::changeEvent(QEvent *e)
 
 void AutoRpg::on_actionNew_character_triggered()
 {
-    if(game) {
+    if(game && m_GameState == GAME_STATE::RUNNING) { //
         if( QMessageBox::warning(this,
                         "Game in progress",
                         "You've got already running game instace. Would you like to proceed?",
@@ -42,6 +42,7 @@ void AutoRpg::on_actionNew_character_triggered()
             game->stop();
             delete(game);
         } else {
+
             return;
         }
     }
@@ -64,7 +65,7 @@ void AutoRpg::startGame(Character *ch)
     game->start();
     ui->frame->setEnabled(true);
     updateData();
-    // m_GameState = GAME_STATE::GS_RUNNING;
+    m_GameState = GAME_STATE::RUNNING ;
 }
 
 void AutoRpg::on_actionGenerate_name_triggered()
@@ -87,7 +88,7 @@ void AutoRpg::updateData()
 
 void AutoRpg::on_actionQuit_triggered()
 {
-    if(game ) { // && (m_GameState != GAME_STATE::GS_RUNNING)
+    if(game && (m_GameState == GAME_STATE::RUNNING) ) { //
         if( QMessageBox::warning(this,
                         "Game in progress",
                         "You are running a game. Would you like to quit?",
